@@ -8,7 +8,7 @@ public class HibernateUtil {
 
 	private static SessionFactory buildSessionFactory() {
 		try {
-			// Create the SessionFactory from hibernate.cfg.xml
+			// Create the SessionFactory from hibernate.cfg.xml (automatic configuration file detection)
 			return new Configuration().configure().buildSessionFactory();
 		} catch (Throwable ex) {
 			// Make sure you log the exception, as it might be swallowed
