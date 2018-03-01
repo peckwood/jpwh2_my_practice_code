@@ -8,28 +8,31 @@ import org.hibernate.Transaction;
 import org.junit.Test;
 
 import com.raidencentral.persistence.HibernateUtil;
+import com.raidencentral.persistence.HibernateUtilProgrammaticConfiguration;
 
 public class HelloWorld {
-	public static void main(String[] args) {
-
+	public static void main(String[] args) throws Exception {
+		//HibernateUtil.buildSessionFactory(HibernateUtil.CONFIGURATION_TYPE_XML);
+		HibernateUtil.buildSessionFactory(HibernateUtil.CONFIGURATION_TYPE_PROGRAMMATIC);
+		//HibernateUtil.buildSessionFactory(HibernateUtil.CONFIGURATION_TYPE_DOT_PROPERTIES);
+		
 		// First unit of work
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction tx = session.beginTransaction();
-
 		Message message = new Message("Hello World");
 		Long msgId = (Long) session.save(message);
-		System.out.println("%%% msgId is"+msgId);
+		System.out.println("%%% msgId is "+msgId);
 
 		tx.commit();
 		session.close();
-
+		
 		// Second unit of work
 		Session newSession = HibernateUtil.getSessionFactory().openSession();
 		Transaction newTransaction = newSession.beginTransaction();
 
-		List messages = newSession.createQuery("from Message m order by m.text asc").list();
+		List<Message> messages = newSession.createQuery("from Message m order by m.text asc").list();
 		System.out.println("%%% "+messages.size() + " messages found:");
-		for (Iterator iter = messages.iterator(); iter.hasNext();) {
+		for (Iterator<Message> iter = messages.iterator(); iter.hasNext();) {
 			Message loadedMessage = (Message) iter.next();
 			System.out.println(loadedMessage.getText());
 		}
@@ -38,6 +41,5 @@ public class HelloWorld {
 
 		// shutting down the application
 		HibernateUtil.shutdown();
-
 	}
 }

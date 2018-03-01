@@ -7,7 +7,7 @@
 5. Mapping the class to a database schema. Create `Mesaage.hbm.xml` next to `Message.java` file
 6. Add a mapping tag for `Message`'s mapping file inside  `hibernate.cfg.xml`
 7. Add other classes like HibernateUtil and HelloWorld
-8. add logging 
+8. add logging
 
 ### Steps to run the program:
 
@@ -18,8 +18,10 @@
 
 ### Choices:
 
-1. Hibernate **XML Configuration**
-   1. Using **hibernate.cfg.xml** instead of hibernate.properties
+1. 3 types of configuration
+   1. Hibernate **XML Configuration**
+      1. Using **hibernate.cfg.xml** instead of hibernate.properties
+   2. Hibernate 
 2. Configure and use Hibernate **without** Spring
 3. **C3P0** Connection pool
 4. **HSQL** database, an open-source in-memory database
