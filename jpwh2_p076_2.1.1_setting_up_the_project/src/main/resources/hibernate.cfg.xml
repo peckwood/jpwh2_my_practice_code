@@ -4,10 +4,11 @@
 
 <hibernate-configuration>
 	<session-factory>
-		<property name="hibernate.connection.driver_class">org.hsqldb.jdbcDriver</property>
-		<property name="hibernate.connection.url">jdbc:hsqldb:hsql://localhost</property>
-		<property name="hibernate.connection.usernamne">sa</property>
-		<property name="hibernate.dialect">org.hibernate.dialect.HSQLDialect</property>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3307/jpwh2_p076_2.1.1_setting_up_the_project</property>
+		<property name="hibernate.connection.usernamne">root</property>
+		<property name="hibernate.connection.password">root</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL57Dialect</property>
 
 		<!-- Use the C3P0 connection pool provider -->
 		<property name="hibernate.c3p0.min_size">5</property>

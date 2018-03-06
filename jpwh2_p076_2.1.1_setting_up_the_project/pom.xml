@@ -35,11 +35,11 @@
 			<artifactId>hibernate-c3p0</artifactId>
 			<version>5.2.13.Final</version>
 		</dependency>
+		<!-- MySql -->
 		<dependency>
-			<groupId>org.hsqldb</groupId>
-			<artifactId>hsqldb</artifactId>
-			<version>2.4.0</version>
-			<scope>test</scope>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.32</version>
 		</dependency>
 		<!-- 单元测试 -->
 		<dependency>

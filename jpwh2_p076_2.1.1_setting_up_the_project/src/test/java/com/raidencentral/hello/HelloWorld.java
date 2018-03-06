@@ -5,15 +5,13 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.junit.Test;
 
 import com.raidencentral.persistence.HibernateUtil;
-import com.raidencentral.persistence.HibernateUtilProgrammaticConfiguration;
 
 public class HelloWorld {
 	public static void main(String[] args) throws Exception {
-		//HibernateUtil.buildSessionFactory(HibernateUtil.CONFIGURATION_TYPE_XML);
-		HibernateUtil.buildSessionFactory(HibernateUtil.CONFIGURATION_TYPE_PROGRAMMATIC);
+		HibernateUtil.buildSessionFactory(HibernateUtil.CONFIGURATION_TYPE_XML);
+		//HibernateUtil.buildSessionFactory(HibernateUtil.CONFIGURATION_TYPE_PROGRAMMATIC);
 		//HibernateUtil.buildSessionFactory(HibernateUtil.CONFIGURATION_TYPE_DOT_PROPERTIES);
 		
 		// First unit of work

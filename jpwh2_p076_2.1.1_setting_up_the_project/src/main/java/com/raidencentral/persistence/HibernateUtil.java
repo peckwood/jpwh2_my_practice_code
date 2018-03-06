@@ -22,11 +22,12 @@ public class HibernateUtil {
 			case CONFIGURATION_TYPE_PROGRAMMATIC:
 				cfg = new Configuration();
 				cfg
-				.addResource("com/raidencentral/hello/Message.hbm.xml")
-					.setProperty("hibernate.connection.driver_class", "org.hsqldb.jdbcDriver")//
-					.setProperty("hibernate.connection.url", "jdbc:hsqldb:hsql://localhost")//
-					.setProperty("hibernate.connection.usernamne", "sa")//
-					.setProperty("hibernate.dialect", "org.hibernate.dialect.HSQLDialect")//
+				.addClass(Message.class)
+					.setProperty("hibernate.connection.driver_class", "com.mysql.jdbc.Driver")//
+					.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3307/jpwh2_p076_2.1.1_setting_up_the_project")//
+					.setProperty("hibernate.connection.usernamne", "root")//
+					.setProperty("hibernate.connection.password", "root")//
+					.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL57Dialect")//
 					
 					.setProperty("hibernate.c3p0.min_size", "5")//
 					.setProperty("hibernate.c3p0.max_size", "20")//
@@ -43,6 +44,7 @@ public class HibernateUtil {
 			case CONFIGURATION_TYPE_DOT_PROPERTIES:
 				cfg = new Configuration();
 				cfg.addClass(Message.class);
+				break;
 			default:
 				break;
 			}
