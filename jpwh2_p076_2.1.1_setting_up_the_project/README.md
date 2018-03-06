@@ -23,9 +23,19 @@
 1. 3 types of configuration
    1. Hibernate **XML Configuration**
       1. Using **hibernate.cfg.xml** instead of hibernate.properties
-   2. Hibernate Programmatic Configuration (<u>not working</u>)
+   2. Hibernate Programmatic Configuration (<u>not working</u>)(in order to test correctly you have to rename hibernate.properties to something else to ensure pure programmatic configuration)
    3. Read hibernate.properties
 2. Configure and use Hibernate **without** Spring
 3. **C3P0** Connection pool, hibernate doesn't seem to support Druid natively, but we can use Druid when Spring is integrated.
 4. MySQL5.7 ~~**HSQL** database, an open-source in-memory database~~
 5. Maven instead of Ant
+
+### About the code
+
+Thrid unit of work shows hibernate's features. 
+
+One is **automatic dirty checking**, update database when an object state is modified. 
+
+Another is **cascading save**, meaning if an object(message "Take me to your leader (please)") is reachable by an already persisted instance(message "Greeting Earthling"), it will be persisted automatically.
+
+Thrd is **transactional write-behind**. 

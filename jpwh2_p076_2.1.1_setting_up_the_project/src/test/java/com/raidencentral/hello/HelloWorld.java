@@ -36,7 +36,19 @@ public class HelloWorld {
 		}
 		newTransaction.commit();
 		newSession.close();
-
+		
+		//Thrid unit of work
+		Session thirdSession = HibernateUtil.getSessionFactory().openSession();
+		Transaction thirdTransaction = thirdSession.beginTransaction();
+		
+		//msgId holds the identifier of the first message
+		message = (Message) thirdSession.get(Message.class, msgId);
+		message.setText("Greeting Earthling");
+		message.setNextMessage(new Message("Take me to your leader (please)"));
+		
+		thirdTransaction.commit();
+		thirdSession.close();
+		
 		// shutting down the application
 		HibernateUtil.shutdown();
 	}
